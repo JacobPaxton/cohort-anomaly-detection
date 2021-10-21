@@ -29,7 +29,7 @@ def url_grab():
     return url
 
 # ---------------- acquire script ---------------- #
-def wrangle_cohorts():
+def wrangle_cohorts(show=False):
     """ returns dataframe of curriculum_logs, 
         reads local csv if it can or pulls from Codeup's database if it can't """
     # run, store query if file not found locally
@@ -49,7 +49,8 @@ def wrangle_cohorts():
         # read local file
         df = pd.read_csv('cohort_logs.csv')
     # print head, return df
-    print(df.head(10))
+    if show == True:
+        print(df.head(10))
     return df
 
 
